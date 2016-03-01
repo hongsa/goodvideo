@@ -1,0 +1,86 @@
+<!--네비게이션 위에 붙여서 만든 카테고리 레이아웃 페이지-->
+{% extends "navigation3.html" %}
+{% block css %}
+{% endblock css %}
+{% block content %}
+
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+
+        <form role="search" action="/admin_partner" method="POST">
+            <div class="row text-center">
+                아이디 :
+                <input type="text" name="id">
+                이름 :
+                <input type="text" name="name" >
+                <button type="submit" class="btn btn-primary btn-md">
+                    검색하기
+                </button>
+            </div>
+
+
+        </form>
+
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover" style="font-size: 13px;">
+                <thead class="text-center">
+                <tr class="row" style="background-color: #e1ebec;">
+                    <th class="text-center col-md-2">아이디</th>
+                    <th class="text-center col-md-2">이름</th>
+                    <th class="text-center col-md-2">연락처</th>
+                    <th class="text-center col-md-2">카톡 아이디</th>
+                    <th class="text-center col-md-2">커미션 비율</th>
+                    <th class="text-center col-md-2">관리</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for each in partner %}
+                    <tr class="row">
+                        <td class="text-center col-md-2">{{ each.partner_id }}</td>
+                        <td class="text-center col-md-2">{{ each.name }}</td>
+                        <td class="text-center col-md-2">{{ each.phone }}</td>
+                        <td class="text-center col-md-2">{{ each.kakao }}</td>
+                        <td class="text-center col-md-2">{{ each.commission *100 }}</td>
+                        <td class="text-center col-md-2">
+                            <a href="/p_modify/{{ each.id }}">
+                                <button type="submit" class="btn btn-primary btn-md">
+                                    수정
+                                </button>
+                            </a>
+                            <a href="/p_delete/{{ each.id }}">
+                                <button type="submit" class="btn btn-primary btn-md">
+                                    탈퇴
+                                </button>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
+
+        {% if get_flashed_messages() %}
+
+            <div class="flahsed_box">
+                {% for each in get_flashed_messages() %}
+                    <div class="flashed_text text-center">
+                        <span style="color: red">{{each}}<span>
+                    </div>
+                {% endfor %}
+            </div>
+
+        {% endif %}
+    </div>
+
+
+    <div class="col-md-1"></div>
+
+
+
+{% endblock %}
+
+{% block js %}
+{% endblock %}

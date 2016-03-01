@@ -1,0 +1,17 @@
+*.pyc
+__pycache__
+lib
+.DS_Store
+manager.py
+*.wsgi
+migrations
+settings.py
+apps/__init__.py
+img
+fonts
+partials
+scss
+.idea
+test_row.py
+
+

@@ -1,0 +1,262 @@
+<!--네비게이션 위에 붙여서 만든 카테고리 레이아웃 페이지-->
+{% extends "navigation.html" %}
+{% block css %}
+{% endblock css %}
+{% block content %}
+
+    <div class="col-md-2"></div>
+    <div class="col-md-10 top_size">
+    <div class="panel panel-default" style="padding: 18px;">
+
+        <div class="row upper_text">
+            <img src="{{url_for('static', filename='img/recommend.png')}}" style="width: 2.333em;"><span>핫한 추천영상</span>&nbsp;&nbsp;
+        </div>
+        <div class="row">
+            {% for each in today %}
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 size_main">
+                    <a href="/detail/{{ each.id }}">
+                        <div>
+                            <img src="https://i.ytimg.com/vi/{{ each.video_src }}/hqdefault.jpg" class="img-responsive" alt="Responsive image"/>
+                            <div class="title_main">
+                                <span>{{ each.title }}</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+    <div class="panel panel-default" style="padding: 18px;">
+
+        <div class="row upper_text">
+            <img src="{{url_for('static', filename='img/category1.png')}}" style="width: 2.333em;"><span>이슈</span>&nbsp;&nbsp;
+            <a href="/1/1">
+                <span>더 보기</span>
+            </a>
+        </div>
+        <div class="row">
+            {% for each in video['issue'] %}
+                <div class="col-md-3 col-xs-6 size_main">
+                    <a href="/detail/{{ each.id }}">
+                        <div>
+                            <img src="https://i.ytimg.com/vi/{{ each.video_src }}/hqdefault.jpg" class="img-responsive" alt="Responsive image"/>
+                            <div class="title_main">
+                                <span>{{ each.title }}</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="panel panel-default" style="padding: 18px;">
+
+        <div class="row upper_text">
+            <img src="{{url_for('static', filename='img/category2.png')}}" style="width: 2.333em;">&nbsp;<span>레드</span>&nbsp;&nbsp;
+            <a href="/2/1">
+                <span>더 보기</span>
+            </a>
+        </div>
+        <div class="row">
+            {% for each in video['red'] %}
+                <div class="col-md-3 col-xs-6 size_main">
+                    <a href="/detail/{{ each.id }}">
+                        <div>
+                            <img src="https://i.ytimg.com/vi/{{ each.video_src }}/hqdefault.jpg" class="img-responsive" alt="Responsive image"/>
+                            <div class="title_main">
+                                <span>{{ each.title }}</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="panel panel-default" style="padding: 18px;">
+
+        <div class="row upper_text">
+            <img src="{{url_for('static', filename='img/category3.png')}}" style="width: 2.333em;">&nbsp;<span>예능</span>&nbsp;&nbsp;
+            <a href="/3/1">
+                <span>더 보기</span>
+            </a>
+        </div>
+        <div class="row">
+            {% for each in video['entertain'] %}
+                <div class="col-md-3 col-xs-6 size_main">
+                    <a href="/detail/{{ each.id }}">
+                        <div>
+                            <img src="https://i.ytimg.com/vi/{{ each.video_src }}/hqdefault.jpg" class="img-responsive" alt="Responsive image"/>
+                            <div class="title_main">
+                                <span>{{ each.title }}</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="panel panel-default" style="padding: 18px;">
+
+        <div class="row upper_text">
+            <img src="{{url_for('static', filename='img/category4.png')}}" style="width: 2.333em;">&nbsp;<span>유머</span>&nbsp;&nbsp;
+            <a href="/4/1">
+                <span>더 보기</span>
+            </a>
+        </div>
+        <div class="row">
+            {% for each in video['humor'] %}
+                <div class="col-md-3 col-xs-6 size_main">
+                    <a href="/detail/{{ each.id }}">
+                        <div>
+                            <img src="https://i.ytimg.com/vi/{{ each.video_src }}/hqdefault.jpg" class="img-responsive" alt="Responsive image"/>
+                            <div class="title_main">
+                                <span>{{ each.title }}</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="panel panel-default" style="padding: 18px;">
+
+        <div class="row upper_text">
+            <img src="{{url_for('static', filename='img/category5.png')}}" style="width: 2.333em;">&nbsp;<span>게임</span>&nbsp;&nbsp;
+            <a href="/5/1">
+                <span>더 보기</span>
+            </a>
+        </div>
+        <div class="row">
+            {% for each in video['game'] %}
+                <div class="col-md-3 col-xs-6 size_main">
+                    <a href="/detail/{{ each.id }}">
+                        <div>
+                            <img src="https://i.ytimg.com/vi/{{ each.video_src }}/hqdefault.jpg" class="img-responsive" alt="Responsive image"/>
+                            <div class="title_main">
+                                <span>{{ each.title }}</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="panel panel-default" style="padding: 18px;">
+
+        <div class="row upper_text">
+            <img src="{{url_for('static', filename='img/category6.png')}}" style="width: 2.333em;">&nbsp;<span>스포츠</span>&nbsp;&nbsp;
+            <a href="/6/1">
+                <span>더 보기</span>
+            </a>
+        </div>
+        <div class="row">
+            {% for each in video['sport'] %}
+                <div class="col-md-3 col-xs-6 size_main">
+                    <a href="/detail/{{ each.id }}">
+                        <div>
+                            <img src="https://i.ytimg.com/vi/{{ each.video_src }}/hqdefault.jpg" class="img-responsive" alt="Responsive image"/>
+                            <div class="title_main">
+                                <span>{{ each.title }}</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="panel panel-default" style="padding: 18px;">
+
+        <div class="row upper_text">
+            <img src="{{url_for('static', filename='img/category7.png')}}" style="width: 2.333em;">&nbsp;<span>뷰티</span>&nbsp;&nbsp;
+            <a href="/7/1">
+                <span>더 보기</span>
+            </a>
+        </div>
+        <div class="row">
+            {% for each in video['beauty'] %}
+                <div class="col-md-3 col-xs-6 size_main">
+                    <a href="/detail/{{ each.id }}">
+                        <div>
+                            <img src="https://i.ytimg.com/vi/{{ each.video_src }}/hqdefault.jpg" class="img-responsive" alt="Responsive image"/>
+                            <div class="title_main">
+                                <span>{{ each.title }}</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <div class="panel panel-default" style="padding: 18px;">
+
+        <div class="row upper_text">
+{#            <img src="{{url_for('static', filename='img/category6.png')}}" style="width: 2.333em;">&nbsp;#}
+            <span>싸움</span>&nbsp;&nbsp;
+            <a href="/8/1">
+                <span>더 보기</span>
+            </a>
+        </div>
+        <div class="row">
+            {% for each in video['fight'] %}
+                <div class="col-md-3 col-xs-6 size_main">
+                    <a href="/detail/{{ each.id }}">
+                        <div>
+                            <img src="https://i.ytimg.com/vi/{{ each.video_src }}/hqdefault.jpg" class="img-responsive" alt="Responsive image"/>
+                            <div class="title_main">
+                                <span>{{ each.title }}</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+    <div class="panel panel-default" style="padding: 18px;">
+
+        <div class="row upper_text">
+{#            <img src="{{url_for('static', filename='img/category6.png')}}" style="width: 2.333em;">&nbsp;#}
+            <span>사건/사고</span>&nbsp;&nbsp;
+            <a href="/9/1">
+                <span>더 보기</span>
+            </a>
+        </div>
+        <div class="row">
+            {% for each in video['accident'] %}
+                <div class="col-md-3 col-xs-6 size_main">
+                    <a href="/detail/{{ each.id }}">
+                        <div>
+                            <img src="https://i.ytimg.com/vi/{{ each.video_src }}/hqdefault.jpg" class="img-responsive" alt="Responsive image"/>
+                            <div class="title_main">
+                                <span>{{ each.title }}</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+
+
+    {#    <div class="col-md-1"></div>#}
+
+
+
+{% endblock %}
+
+{% block js %}
+{% endblock %}

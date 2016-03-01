@@ -1,0 +1,96 @@
+<!--네비게이션 위에 붙여서 만든 카테고리 레이아웃 페이지-->
+{% extends "navigation2.html" %}
+{% block css %}
+    <style type=text/css>
+        @media only screen and (max-width : 640px) {
+
+            .partner_main{
+                background-image: url(../static/img/partner_main_mobile.png);
+                background-position: left top;
+                background-repeat: no-repeat;
+                background-size: 100% auto;
+                display: block;
+                padding-bottom: 100% !important;
+            }
+
+
+        }
+        @media only screen and (min-width : 640px) {
+
+            .partner_main {
+                background-image: url(../static/img/partner_main.jpg);
+                background-position: left top;
+                background-repeat: no-repeat;
+                background-size: 100% auto;
+                display: block;
+                padding-bottom: 100% !important;
+            }
+
+        }
+
+    </style>
+{% endblock css %}
+{% block content %}
+
+
+    <div class="modal fade" id="layerpop" >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <!-- header -->
+              <div class="modal-header">
+                <!-- 닫기(x) 버튼 -->
+        <span class="text-center">공지사항</span>
+                <!-- header title -->
+              </div>
+              <!-- body -->
+              <div class="modal-body">
+        <div>
+
+            안녕하세요 굿비디오입니다.<br><br>
+
+
+            파트너 여러분들이 기다리셨던 새로운 굿비디오가 오픈했습니다.<br><br>
+
+            많은 관심 부탁드리며, 현재 이 팝업이 나오는 굿비디오 사이트는<br>
+            11일 오후 24:00까지만 수익금이 찍히며, 이후로는 수익금이 전혀 찍히지 않습니다.<br><br>
+
+            적립된 수익금은 14일까지 수익금 신청을 받으며, 이후 이 팝업이 나오는 굿비디오 사이트는 닫히고 새로운 굿비디오 사이트만 운영되니 참고부탁드립니다.<br><br>
+
+            굿비디오 커미션 : 7원<br>
+            굿비디오 사이트 : goodvideo.kr<br>
+            굿비디오 파트너 : partner.goodvideo.kr<br>
+            <br>
+            문의사항은 카톡 @굿비디오 // kang6873 // junha6873 문의부탁드립니다.
+        </div>
+              </div>
+              <!-- Footer -->
+              <div class="modal-footer text-center">
+                <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <div class="col-md-1"></div>
+    <div class="col-md-10 text-center">
+        <a href="/guide">
+            <div class="partner_main text-center">
+
+            </div>
+            {#            <img src="" class="partner_main img-responsive"/>#}
+        </a>
+
+    </div>
+    <div class="col-md-1"></div>
+
+
+
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('div.modal').modal();
+        })
+    </script>
+{% endblock %}

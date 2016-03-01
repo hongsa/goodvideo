@@ -1,0 +1,248 @@
+<!--네비게이션 위에 붙여서 만든 카테고리 레이아웃 페이지-->
+{% extends "navigation.html" %}
+{% block head %}
+    <title>{{ video.title }}</title>
+    <meta property="og:title" content="{{ video.title }}"/>
+    <meta property="og:image" content="https://i.ytimg.com/vi/{{ video.video_src }}/hqdefault.jpg"/>
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="627" />
+    <meta property="og:site_name" content="굿비디오"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="http://goodvideo.co.kr/detail/{{ video.id }}"/>
+
+
+{% endblock head%}
+
+{% block css %}
+{% endblock css %}
+{% block content %}
+
+
+    <div class="modal fade text-center" id="layerpop" style="padding: 30px;">
+              <div class="modal-body ad_big" style="margin: 0 auto;">
+                <button style="color: white;font-size: 13px;opacity: 10;margin-bottom: 0px;" type="button" class="close" data-dismiss="modal">X</button>
+        <br>
+        <div id="mezzo_ad">
+        </div>
+              </div>
+            </div>
+
+
+
+    <div class="col-md-2"></div>
+
+
+
+    <div class="col-md-10">
+        <div class="col-md-8">
+            <div class="row">
+                {#                <iframe src="http://imp.mklaud.com/ad?id=1666" scrolling="no" border="0" marginWidth="0" marginHeight="0" frameBorder="0" width="100%" height="92"></iframe>#}
+                {#                <script language=java-script src=http://mtag.mman.kr/js.mezzo/makegood/goodvideo/banner></script>#}
+                <div id="mmaDisplay1">
+                    <script src="http://image.cauly.co.kr/websdk/multi_mini_ads/ads.js"></script>
+                    <script>
+                        new CaulyAds({app_code:"Db5sVRfx",ad_form:"nativead",sub_ad_form:"multi_mini_ads",placement:1,displayid:"mmaDisplay1",
+                            passback:function(){
+
+                                /* 패스백 설정 구간 */
+
+                            }});</script>
+                </div>
+                <iframe id="targetFrame" class="video_big" src="https://www.youtube.com/embed/{{ video.video_src }}" frameborder="0" allowfullscreen></iframe>
+
+
+            </div>
+            <iframe width="100%" height="84px" src="http://ad.ad4989.co.kr/cgi-bin/PelicanC.dll?impr?pageid=01fU&out=iframe" allowTransparency = "true" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" ></iframe>
+            {#            <script type="text/javascript" src="http://ad.ad4989.co.kr/cgi-bin/PelicanC.dll?impr?pageid=01fU&out=script" charset="euc-kr"></script>#}
+            <div class="row video_text" style="background-color: #ffffff;padding: 15px;">
+                <div style="font-size: 24px;">
+                    {{ video.title }}
+                </div>
+
+                <div class="text-left">게시일 : {{video.created.strftime('%Y-%m-%d')}} 조회수 : {{ video.click }} </div>
+                <br>
+                <div>
+                    <span style="vertical-align: top;" class="fb-share-button text-left" data-href="http://goodvideo.co.kr/detail/{{ video.id }}?pi={{ session.partner_id }}" data-layout="button"></span>
+                    <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+                </div>
+                {#                <div class="fb-page" data-href="https://www.facebook.com/goodvideo.co.kr" data-height="70" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/goodvideo.co.kr"><a href="https://www.facebook.com/goodvideo.co.kr">굿비디오</a></blockquote></div></div>#}
+                {#                <iframe src="//www.facebook.com/plugins/follow?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100010633846228&amp;layout=standard&amp;show_faces=true&amp;colorscheme=light&amp;width=450&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>#}
+                {% if session.partner_id %}
+                    <div>
+                        파트너 링크 : www.goodvideo.co.kr/detail/{{ video.id }}?pi={{ session.partner_id }}
+                    </div>
+                {% endif %}
+                <br>
+
+                {#                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="width: 300px;margin: 0 auto;">#}
+                {#                    <!-- Indicators -->#}
+                {#                    <ol class="carousel-indicators">#}
+                {#                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>#}
+                {#                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>#}
+                {#                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>#}
+                {#                    </ol>#}
+                {##}
+                {#                    <!-- Wrapper for slides -->#}
+                {#                    <div class="carousel-inner" role="listbox">#}
+                {#                        <div class="item active">#}
+                {#                            <a href="http://www.bomtoon.com/comic/ep_view/In_T_Words/p2/?p_id=comu1" target="_blank">#}
+                {#                                <img src="../static/img/slide1.gif">#}
+                {#                            </a>#}
+                {#                            <div class="carousel-caption">#}
+                {#                            </div>#}
+                {#                        </div>#}
+                {#                        <div class="item">#}
+                {#                            <a href="http://www.bomtoon.com/comic/ep_view/olderyoung/p1/?p_id=comu2" target="_blank">#}
+                {#                                <img src="../static/img/slide2.gif">#}
+                {#                            </a>#}
+                {#                            <div class="carousel-caption">#}
+                {#                            </div>#}
+                {#                        </div>#}
+                {##}
+                {#                        <div class="item">#}
+                {#                            <a href="http://www.bomtoon.com/comic/ep_view/dogbaek/p1/?p_id=comu3" target="_blank">#}
+                {#                                <img src="../static/img/slide3.gif">#}
+                {#                            </a>#}
+                {##}
+                {#                            <div class="carousel-caption">#}
+                {#                            </div>#}
+                {#                        </div>#}
+                {#                    </div>#}
+                {##}
+                {#                    <!-- Controls -->#}
+                {#                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">#}
+                {#                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>#}
+                {#                        <span class="sr-only">Previous</span>#}
+                {#                    </a>#}
+                {#                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">#}
+                {#                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>#}
+                {#                        <span class="sr-only">Next</span>#}
+                {#                    </a>#}
+                {#                </div>#}
+                {##}
+                {#                <br>#}
+                <div class="text-center">
+                    <div id="mmaDisplay2">
+                        <script src="http://image.cauly.co.kr/websdk/multi_mini_ads/ads.js"></script>
+                        <script>
+                            new CaulyAds({app_code:"w8qYNoDj",ad_form:"nativead",sub_ad_form:"multi_mini_ads",placement:1,displayid:"mmaDisplay2",
+                                passback:function(){
+
+                                    /* 패스백 설정 구간 */
+
+                                }});</script>
+                    </div>
+
+
+                    {#                    <script language=javascript src=http://mtag.mman.kr/interjs.mezzo/makegood/goodvideo/interstitial></script>#}
+                    {#                    <br>#}
+                    <iframe width="300" height="250" border="0" frameborder="0" scrolling="no" src="http://ra.ntwoad.co.kr/n2ad_iframe.html?n2ad_cd=NTk4JTdDXyU3QzE0OTY="></iframe>
+                    <br>
+                    <script type="text/javascript" src="http://ad.ilikesponsorad.com/ad/ad.js?adImpMgrCode=21878&width=300&height=250"></script>
+                    <br>
+                </div>
+
+                {#            <br><br>#}
+                {##}
+                {#            <div style="position: fixed;left: 0px;bottom: -3px;width: 100%;margin-top:2px;text-align: center;z-index: 100;">#}
+                {#            </div>#}
+
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            {% for each in related %}
+                <div class="row" style="margin-bottom: 10px;">
+                    <a href="/detail/{{ each.id }}">
+                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                            <img src="https://i.ytimg.com/vi/{{ each.video_src }}/hqdefault.jpg" class="img-responsive" alt="Responsive image"/>
+                        </div>
+                        <div class="col-md-7" style="font-size: 13px; padding: 10px;">
+                            <div style="overflow: hidden;height: ">{{ each.title }}</div>
+                            <div style="color: gray">조회수 : {{ each.click }}</div>
+                            <div style="color: gray">게시일 : {{ each.created.strftime('%Y-%m-%d') }}</div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+            <br><br><br>
+        </div>
+
+    </div>
+
+
+{% endblock %}
+
+{% block js %}
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            if ($(window).width() <= 700)
+                $('div.modal').modal();
+        })
+    </script>
+
+    {#    트위터#}
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+
+    <script type='text/javascript'>
+
+        function success_callback( info ) {
+        }
+
+        function nofill_callback( retcode ) {
+            /*   retcode 100 : non-chargeable ad */
+            if ( retcode == '100' ) return true;
+
+            /* 'return false'로 설정하면 광고가 표시되지 않습니다.  */
+            return false;
+        }
+
+        var caulyad = {
+            /*발급 ID */
+            appcode : 'tN0t0dmt',
+            /* 광고가 삽입될 div를 지정해주세요. */
+            displayid : 'cauly_ad_area',
+            /* callback function */
+            nofill_callback : nofill_callback,
+            success_callback : success_callback,
+            target_file:"caulyClick-320_50.js"
+        }
+    </script>
+
+    {#띠 배너    #}
+    <script language=javascript src=http://mtag.mman.kr/js.mezzo/makegood/goodvideo/scroll_banner></script>
+
+    <!-- TPMN SmartFrame -->
+    <script type="text/javascript">
+        var tpmn_sf_plus_params = {
+            publisherID : "SYNC",
+            inventoryID : "357"
+        };
+    </script>
+    <script src="http://static.tpmn.co.kr/sf/v2/sfplus.js" type="text/java-script"></script>
+    <!-- // TPMN SmartFrame -->
+
+
+
+
+    {#    페북#}
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.4&appId=735497843177342";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+    <script type='text/javascript' src="{{url_for('static', filename='js/mezzo_ad.js')}}"></script>
+    <script type='text/javascript' src="{{url_for('static', filename='js/mezzo_m.js')}}"></script>
+    <script src="http://image.cauly.co.kr/websdk/multi_mini_ads/ads.js"></script>
+
+
+
+
+
+{% endblock %}

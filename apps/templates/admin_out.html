@@ -1,0 +1,213 @@
+<!--네비게이션 위에 붙여서 만든 카테고리 레이아웃 페이지-->
+{% extends "navigation3.html" %}
+{% block css %}
+{% endblock css %}
+{% block content %}
+
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+
+        <form role="search" action="/admin_out" method="POST">
+            <div class="row text-center">
+                아이디 :
+                <input type="text" name="id">
+                이름 :
+                <input type="text" name="name" >
+                <select name="start_year">
+                    <option value="2016" selected>2016</option>
+                    <option value="2015">2015</option>
+                    <option value="2014" >2014</option>
+                </select>
+                년
+                <select name="start_month">
+                    <option value='01' selected>1</option>
+                    <option value='02' >2</option>
+                    <option value='03' >3</option>
+                    <option value='04' >4</option>
+                    <option value='05' >5</option>
+                    <option value='06' >6</option>
+                    <option value='07' >7</option>
+                    <option value='08' >8</option>
+                    <option value='09' >9</option>
+                    <option value='10' >10</option>
+                    <option value='11' >11</option>
+                    <option value='12' >12</option>
+                </select>
+                월
+                <select name="start_day">
+                    <option value='01' selected>1</option>
+                    <option value='02' >2</option>
+                    <option value='03' >3</option>
+                    <option value='04' >4</option>
+                    <option value='05' >5</option>
+                    <option value='06' >6</option>
+                    <option value='07' >7</option>
+                    <option value='08' >8</option>
+                    <option value='09' >9</option>
+                    <option value='10' >10</option>
+                    <option value='11' >11</option>
+                    <option value='12' >12</option>
+                    <option value='13' >13</option>
+                    <option value='14' >14</option>
+                    <option value='15' >15</option>
+                    <option value='16' >16</option>
+                    <option value='17' >17</option>
+                    <option value='18' >18</option>
+                    <option value='19' >19</option>
+                    <option value='20' >20</option>
+                    <option value='21' >21</option>
+                    <option value='22' >22</option>
+                    <option value='23' >23</option>
+                    <option value='24' >24</option>
+                    <option value='25' >25</option>
+                    <option value='26' >26</option>
+                    <option value='27' >27</option>
+                    <option value='28' >28</option>
+                    <option value='29' >29</option>
+                    <option value='30' >30</option>
+                    <option value='31' >31</option>
+                </select> 일
+                ~
+                <select name="end_year">
+                    <option value="2016" selected>2016</option>
+                    <option value="2015">2015</option>
+                    <option value="2014">2014</option>
+
+                </select>
+                년
+                <select name="end_month">
+                    <option value='01' >1</option>
+                    <option value='02' >2</option>
+                    <option value='03' >3</option>
+                    <option value='04' >4</option>
+                    <option value='05' >5</option>
+                    <option value='06' >6</option>
+                    <option value='07' >7</option>
+                    <option value='08' >8</option>
+                    <option value='09' >9</option>
+                    <option value='10' >10</option>
+                    <option value='11' >11</option>
+                    <option value='12' selected>12</option>
+                </select>
+                월
+                <select name="end_day">
+                    <option value='01' selected>1</option>
+                    <option value='02' >2</option>
+                    <option value='03' >3</option>
+                    <option value='04' >4</option>
+                    <option value='05' >5</option>
+                    <option value='06' >6</option>
+                    <option value='07' >7</option>
+                    <option value='08' >8</option>
+                    <option value='09' >9</option>
+                    <option value='10' >10</option>
+                    <option value='11' >11</option>
+                    <option value='12' >12</option>
+                    <option value='13' >13</option>
+                    <option value='14' >14</option>
+                    <option value='15' >15</option>
+                    <option value='16' >16</option>
+                    <option value='17' >17</option>
+                    <option value='18' >18</option>
+                    <option value='19' >19</option>
+                    <option value='20' >20</option>
+                    <option value='21' >21</option>
+                    <option value='22' >22</option>
+                    <option value='23' >23</option>
+                    <option value='24' >24</option>
+                    <option value='25' >25</option>
+                    <option value='26' >26</option>
+                    <option value='27' >27</option>
+                    <option value='28' >28</option>
+                    <option value='29' >29</option>
+                    <option value='30' >30</option>
+                    <option value='31' >31</option>
+                </select>일
+                &nbsp;&nbsp;
+                <button type="submit" class="btn btn-primary btn-md">
+                    검색하기
+                </button>
+            </div>
+        </form>
+
+        <br/>
+        <div class="text-center">
+
+            {{ start }} ~ {{ end2 }} 검색결과입니다.
+        </div>
+        <br/>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover" style="font-size: 13px;">
+                <thead class="text-center">
+                <tr class="row" style="background-color: #e1ebec;">
+                    <th class="text-center col-md-1">아이디</th>
+                    <th class="text-center col-md-1">이름</th>
+                    <th class="text-center col-md-1">신청일자</th>
+                    <th class="text-center col-md-1">처리일자</th>
+                    <th class="text-center col-md-1">은행</th>
+                    <th class="text-center col-md-2">계좌번호</th>
+                    <th class="text-center col-md-1">예금주</th>
+                    <th class="text-center col-md-1">입금액</th>
+                    <th class="text-center col-md-2">주민번호</th>
+                    <th class="text-center col-md-1">처리상태</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                {% for each in result %}
+                    <tr class="row">
+                        <td class="text-center col-md-1">{{ each.partner.partner_id }}</td>
+                        <td class="text-center col-md-1">{{ each.partner.name }}</td>
+                        <td class="text-center col-md-1">{{ each.register_date }}</td>
+                        <td class="text-center col-md-1">{{ each.paid_date }}</td>
+                        <td class="text-center col-md-1">{{ each.partner.bank_name }}</td>
+                        <td class="text-center col-md-2">{{ each.partner.bank_number }}</td>
+                        <td class="text-center col-md-1">{{ each.partner.bank_owner }}</td>
+                        <td class="text-center col-md-1">{{ each.money }}원</td>
+                        <td class="text-center col-md-2">{{ each.personal_number }}</td>
+                        {% if each.state == 0  %}
+                            <td class="text-center col-md-1">
+                                <span id="{{ each.id }}">
+                                    <input type="button" value="완료" class="btn_state"/>
+                                <input type="button" value="반려" class="btn_state"/>
+                                </span>
+                            </td>
+                        {% elif each.state == 1 %}
+                            <td class="text-center col-md-1">완료</td>
+                        {% else %}
+                            <td class="text-center col-md-1">반려</td>
+                        {% endif %}
+
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+
+
+        {% if get_flashed_messages() %}
+
+            <div class="flahsed_box">
+                {% for each in get_flashed_messages() %}
+                    <div class="flashed_text text-center">
+                        <span style="color: red">{{each}}<span>
+                    </div>
+                {% endfor %}
+            </div>
+
+        {% endif %}
+    </div>
+
+
+
+
+
+
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript" src="{{url_for('static', filename='js/cash_state.js')}}"></script>
+
+{% endblock %}

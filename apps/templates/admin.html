@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
+</head>
+{% if get_flashed_messages() %}
+
+    <div class="flahsed_box">
+        {% for each in get_flashed_messages() %}
+            <div class="flashed_text text-center">
+                {{each}}
+            </div>
+        {% endfor %}
+    </div>
+
+{% endif %}
+<body>
+<div class="col-md-1"></div>
+<div class="col-md-10">
+    <div class="col-md-12">
+        <h3>동영상 업로드</h3>
+        <form action="{{url_for("admin")}}" method="post">
+            <p> 제목: <input type="text" name="name" class="form-control" placeholder="제목 입력하기"></p>
+            <p> 비디오링크: <input type="text" name="video_src" class="form-control" placeholder="watch?v= 여기 뒷부분만 입력해주세요"></p>
+
+            <select name="category" class="form-control">
+                <option value="1">이슈</option>
+                <option value="2">레드</option>
+                <option value="3" >예능</option>
+                <option value="4">유머</option>
+                <option value="5">게임</option>
+                <option value="6">스포츠</option>
+                <option value="7">뷰티</option>
+                <option value="8">싸움</option>
+                <option value="9">사건/사고</option>
+            </select>
+            <br/>
+            <p><input type="submit" class="btn-block" value="DB 저장"></p>
+        </form>
+
+    </div>
+    <a href="/modify_video/1">
+
+        <button class="btn btn-primary btn-block">DB 보러가기</button>
+    </a>
+
+    <div class="col-md-1"></div>
+
+
+    <div class="col-md-1"></div>
+</body>
+</html>

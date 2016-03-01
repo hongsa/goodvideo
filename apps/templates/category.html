@@ -1,0 +1,60 @@
+<!--네비게이션 위에 붙여서 만든 카테고리 레이아웃 페이지-->
+{% extends "navigation.html" %}
+{% block css %}
+{% endblock css %}
+{% block content %}
+
+    <div class="col-md-2"></div>
+    <div class="col-md-10 top_size">
+    <div class="panel panel-default" style="padding: 18px;">
+
+        <div class="row upper_text">
+             <img src="/static/img/category{{filter}}.png" style="width: 2.333em;"><span>{{ main }}</span>&nbsp;&nbsp;
+        </div>
+        <div class="row">
+            {% for each in video %}
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 size_main">
+                    <a href="/detail/{{ each.id }}">
+                        <div>
+                            <img src="https://i.ytimg.com/vi/{{ each.video_src }}/hqdefault.jpg" class="img-responsive" alt="Responsive image"/>
+                            <div class="title_main">
+                                <span>{{ each.title }}</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <div class="row text-center">
+        <ul class="pagination">
+            <li>
+                <a href="/index/{{down}}">&laquo;</a>
+            </li>
+            {% for each in total_page %}
+                {% if each == page %}
+                    <li class="active">
+                        <a href="/{{ filter }}/{{page}}">{{page}}</a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="/{{ filter }}/{{each}}">{{each}}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+            <li>
+                <a href="/{{ filter }}/{{up}}">&raquo;</a>
+            </li>
+        </ul>
+    </div>
+
+{#    <div class="col-md-1"></div>#}
+
+
+
+{% endblock %}
+
+{% block js %}
+{% endblock %}

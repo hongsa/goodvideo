@@ -1,0 +1,49 @@
+<!--네비게이션 위에 붙여서 만든 카테고리 레이아웃 페이지-->
+{% extends "navigation2.html" %}
+{% block css %}
+    <style type=text/css>
+        @media only screen and (max-width : 640px) {
+
+            .guide{
+                background-image: url(../static/img/guide_mobile.jpg);
+                background-position: left top;
+                background-repeat: no-repeat;
+                background-size: 100% auto;
+                display: block;
+                padding-bottom: 420% !important;
+            }
+
+
+        }
+        @media only screen and (min-width : 640px) {
+
+            .guide{
+                background-image: url(../static/img/guide.jpg);
+                background-position: left top;
+                background-repeat: no-repeat;
+                background-size: 100% auto;
+                display: block;
+                padding-bottom: 300% !important;
+            }
+        }
+
+    </style>
+{% endblock css %}
+{% block content %}
+
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <a href="#">
+            <div class="guide text-center">
+                </div>
+        </a>
+
+    </div>
+    <div class="col-md-1"></div>
+
+
+
+{% endblock %}
+
+{% block js %}
+{% endblock %}

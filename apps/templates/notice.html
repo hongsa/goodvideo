@@ -1,0 +1,85 @@
+<!--네비게이션 위에 붙여서 만든 카테고리 레이아웃 페이지-->
+{% extends "navigation2.html" %}
+{% block css %}
+{% endblock css %}
+{% block content %}
+
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover" style="font-size: 13px;">
+                <thead class="text-center">
+                <tr class="row" style="background-color: #e1ebec;">
+                    <th class="text-center col-md-1">번호&nbsp;<span class="glyphicon glyphicon-triangle-bottom"></span></th>
+                    <th class="text-center col-md-7">제목&nbsp;<span class="glyphicon glyphicon-link"></span></th>
+                    <th class="text-center col-md-1">작성자&nbsp;<span class="glyphicon glyphicon-user"></span></th>
+                    <th class="text-center col-md-3">날짜&nbsp;<span class="glyphicon glyphicon-time"></span></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for each in notice %}
+                    <tr class="row">
+                        <td class="text-center col-md-1">{{each.id}}</td>
+
+                        <td class="col-md-7"><a href="../n_detail/{{each.id}}" style="text-decoration: none;">
+                            {{each.title}}
+
+                            {% if session.partner_id == 1 %}
+                                <a href="/n_delete/{{ each.id }}">
+                                    <button type="submit" class="btn btn-primary">
+                                        글 삭제
+                                    </button>
+                                </a>
+                            {% endif %}
+
+                        </a></td>
+                        <td class="col-md-1 text-center">
+                            운영자
+                        </td>
+                        <td class="text-center col-md-3">{{each.created.strftime('%Y-%m-%d')}}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        {% if session.partner_id == 1 %}
+            <div class="row text-right">
+                <a href="/n_write"><button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span>&nbsp;글쓰기</button></a>
+            </div>
+        {% endif %}
+
+        <div class="row text-center">
+            <ul class="pagination">
+                <li>
+                    <a href="/notice/{{down}}">&laquo;</a>
+                </li>
+                {% for each in total_page %}
+                    {% if each == page %}
+                        <li class="active">
+                            <a href="/notice/{{page}}">{{page}}</a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="/notice/{{each}}">{{each}}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+                <li>
+                    <a href="/notice/{{up}}">&raquo;</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    </div>
+
+    <div class="col-md-1"></div>
+
+
+
+{% endblock %}
+
+{% block js %}
+{% endblock %}

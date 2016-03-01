@@ -1,0 +1,41 @@
+<!--네비게이션 위에 붙여서 만든 카테고리 레이아웃 페이지-->
+{% extends "navigation3.html" %}
+{% block css %}
+{% endblock css %}
+{% block content %}
+
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+    <form role="search" action="/p_modify/{{ partner.id }}" method="POST">
+        <div>
+            <span>커미션 비율 : </span>
+            <input type="number" name="commission" value="{{ partner.commission * 100}}"placeholder="1-100 사이(%)">
+            <span>클릭당 단가 : </span>
+            <input type="number" name="click" value="{{ partner.click }}">
+        </div>
+
+        <div>
+            <span>은행 : </span>
+            <input type="text" name="bank_name" value="{{ partner.bank_name}}">
+            <span>예금주 : </span>
+            <input type="text" name="bank_owner" value="{{ partner.bank_owner }}">
+            <span>계좌번호 : </span>
+            <input type="text" name="bank_number" value="{{ partner.bank_number}}">
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-md">
+            수정하기
+        </button>
+    </form>
+
+
+
+
+    <div class="col-md-1"></div>
+
+
+
+{% endblock %}
+
+{% block js %}
+{% endblock %}

@@ -1,0 +1,47 @@
+<!--네비게이션 위에 붙여서 만든 카테고리 레이아웃 페이지 -->
+{% extends "navigation2.html" %}
+{% block css %}
+{% endblock css %}
+
+{% block content %}
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+
+        <div>
+            <div class="boardTitle">
+                <div class="col-md-10 text-left" >
+                    {{detail.title}}
+                </div>
+                <div class = "col-md-2 text-right">
+                    {{detail.created}}
+                </div>
+            </div>
+
+            <div class="boardBox">
+                <div class = "row" style="margin-left: 5px;padding: 0.5em">
+                    <div class="col-md-2">
+                        <span style="color: #1473b3;">운영자</span></div>
+
+                    <div class="col-md-8"></div>
+
+                </div>
+
+                <hr style="margin-top: 0px; margin-bottom: 0.5em; border: 1px solid;"/>
+                <div class = "text-left" style="margin-left: 1em;">
+                    {{detail.content}}
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="col-md-1"></div>
+
+{% endblock %}
+
+{% block js %}
+{% endblock %}

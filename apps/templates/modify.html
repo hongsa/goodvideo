@@ -1,0 +1,35 @@
+<!--네비게이션 위에 붙여서 만든 카테고리 레이아웃 페이지-->
+{% extends "navigation2.html" %}
+{% block css %}
+{% endblock css %}
+
+
+{% block content %}
+
+    <div class="col-md-1"></div>
+    <div class="col-md-10 text-center">
+        <p style="font-size: 30px;">비밀번호 변경하기</p>
+        <form action="{{url_for('modify_password')}}" method="post">
+            <input type="password" name="password" placeholder="  변경할 비밀번호를 입력" style="width: 30%"/> &nbsp;&nbsp;&nbsp;<button class="btn btn-warning" type="submit">변경하기!</button>
+            <br/>
+            {% with errors = get_flashed_messages(category_filter=["password"]) %}
+                {% if errors %}
+                    {% for msg in errors %}
+                        {{ msg }}
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+        </form>
+
+
+    </div>
+
+    <div class="col-md-1"></div>
+
+
+
+
+{% endblock %}
+{% block js %}
+{% endblock %}
