@@ -4,10 +4,8 @@ from apps import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from apps.models import User,Partner
 from apps import forms,forms2
-import random
 import pytz
 import datetime
-import logging
 
 def get_current_time():
     return datetime.datetime.now(pytz.timezone('Asia/Seoul'))
@@ -183,46 +181,3 @@ def p_logout():
     else:
         flash(u"로그인 되어있지 않습니다.", "error")
     return redirect(url_for('partner'))
-
-
-
-
-
-# def modify_password():
-#
-#     user = User.query.filter_by(user_id=session['session_user_id']).first()
-#
-#     if request.method == 'POST':
-#         user.password = generate_password_hash(request.form['password'])
-#         db.session.commit()
-#         flash(u"변경 완료되었습니다.", "password")
-#         return redirect(url_for('modify_password'))
-#
-#     return render_template("modify.html")
-#
-# def modify_nickname():
-#
-#     user = User.query.filter_by(user_id=session['session_user_id']).first()
-#
-#     if request.method == 'POST':
-#         nickname=request.form['nickname']
-#         if len(nickname) >=8:
-#             flash(u"7자 이내로 입력해주세요.", "nickname")
-#             return redirect(url_for('modify_nickname'))
-#
-#
-#         if User.query.filter_by(nickname=nickname).first():
-#             flash(u"이미 사용 중인 닉네임 입니다.", "nickname")
-#             return redirect(url_for('modify_nickname'))
-#
-#         user.nickname=nickname
-#         db.session.commit()
-#         session['session_user_nickname'] = user.nickname
-#         flash(u"변경 완료되었습니다.", "nickname")
-#         return redirect(url_for('modify_nickname'))
-#
-#     return render_template("modify.html")
-#
-#
-# def contact():
-#     return render_template("contact.html")
